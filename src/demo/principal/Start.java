@@ -1,5 +1,5 @@
 package demo.principal;
-import demo.interfaces.*;
+import demo.screens.menu.MainMenu;
 
 public class Start {
 
