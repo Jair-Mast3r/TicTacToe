@@ -2,8 +2,11 @@ package demo.screens.menu;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -29,23 +32,78 @@ public class MainMenu {
         
         frame.getContentPane().setBackground(Color.GREEN);
         
-        JLabel label = new JLabel(); //JLabel Creation
-        label.setIcon(new ImageIcon("res/img/menu/ticTacToe.png")); //Sets the image to be displayed as an icon
-        Dimension size = label.getPreferredSize(); //Gets the size of the image
-        frame.add(label);
-        label.setBounds(41, 61, size.width, size.height); //Sets the location of the image
+        //Adding Tic Tac Toe image label
+        JLabel ticTacToeLabel = new JLabel(); //JLabel Creation
+        ticTacToeLabel.setIcon(new ImageIcon("res/img/menu/ticTacToe.png")); //Sets the image to be displayed as an icon
+        Dimension ticTacToeSize = ticTacToeLabel.getPreferredSize(); //Gets the size of the image
+        frame.add(ticTacToeLabel);
+        ticTacToeLabel.setBounds(41, 61, ticTacToeSize.width, ticTacToeSize.height); //Sets the location of the image
         
+        //Adding Play As image label
+        JLabel playAsLabel = new JLabel(); //JLabel Creation
+        playAsLabel.setIcon(new ImageIcon("res/img/menu/playAs.png")); //Sets the image to be displayed as an icon
+        Dimension playAsSize = playAsLabel.getPreferredSize(); //Gets the size of the image
+        frame.add(playAsLabel);
+        playAsLabel.setBounds(88, 196, playAsSize.width, playAsSize.height); //Sets the location of the image
+        
+        //Adding Configuration image label
+        JButton configurationsLabel=new JButton();
+        configurationsLabel.setIcon(new ImageIcon("res/img/menu/nut.png")); //Sets the image to be displayed as an icon
+        Dimension configurationsSize = configurationsLabel.getPreferredSize(); //Gets the size of the image
+        frame.add(configurationsLabel);
+        configurationsLabel.setBounds(12, 13, configurationsSize.width, configurationsSize.height); //Sets the location of the image
+        configurationsLabel.setFocusPainted(false);
+        //configurationsLabel.setBorder(null);
+        //configurationsLabel.setBorderPainted(false);
+        //configurationsLabel.setBorder(null);
+        //configurationsLabel.setMargin(new Insets(0, 0, 0, 0));
+        configurationsLabel.setContentAreaFilled(false);
+        configurationsLabel.setOpaque(false);
+        
+        //Adding Information image label
+        JButton informationJButton = new JButton();
+        informationJButton.setIcon(new ImageIcon("res/img/menu/information.png")); //Sets the image to be displayed as an icon
+        Dimension informationSize = informationJButton.getPreferredSize(); //Gets the size of the image
+        frame.add(informationJButton);
+        informationJButton.setBounds(254, 13, informationSize.width, informationSize.height); //Sets the location of the image
+        informationJButton.setFocusPainted(false);
+        informationJButton.setContentAreaFilled(false);
+        informationJButton.setOpaque(false);
+        
+        //Adding Button X image label
+        JButton buttonXJButton = new JButton();
+        buttonXJButton.setIcon(new ImageIcon("res/img/menu/buttonX.png")); //Sets the image to be displayed as an icon
+        Dimension buttonXSize = buttonXJButton.getPreferredSize(); //Gets the size of the image
+        frame.add(buttonXJButton);
+        buttonXJButton.setBounds(41, 253, buttonXSize.width, buttonXSize.height); //Sets the location of the image
+        buttonXJButton.setFocusPainted(false);
+        buttonXJButton.setContentAreaFilled(false);
+        buttonXJButton.setOpaque(false);
+        
+        buttonXJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // Destroy the current frame
+                new GridScreen(); // Open the second frame
+            }
+        });
+        
+        //Adding Button Y image label
+        JButton buttonOJButton = new JButton();
+        buttonOJButton.setIcon(new ImageIcon("res/img/menu/buttonO.png")); //Sets the image to be displayed as an icon
+        Dimension buttonOSize = buttonOJButton.getPreferredSize(); //Gets the size of the image
+        frame.add(buttonOJButton);
+        buttonOJButton.setBounds(173, 253, buttonOSize.width, buttonOSize.height); //Sets the location of the image
+        buttonOJButton.setFocusPainted(false);
+        buttonOJButton.setContentAreaFilled(false);
+        buttonOJButton.setOpaque(false);
+        
+        buttonOJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // Destroy the current frame
+                new GridScreen(); // Open the second frame
+            }
+        });
 	}
-	/*
-	private JLabel showTicTacToe() {
-
-        // Load the image
-        ImageIcon imageIcon = new ImageIcon("res/img/menu/ticTacToe.png");
-
-        // Create a JLabel to hold the ImageIcon
-        JLabel label = new JLabel(imageIcon);
-
-        return label;
-    }
-	*/
 }
