@@ -1,4 +1,6 @@
 package demo.principal;
+import javax.swing.JFrame;
+
 import demo.screens.menu.MainMenu;
 
 public class Start {
@@ -6,9 +8,11 @@ public class Start {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		MainMenu mm = new MainMenu();
+		new MainMenu();
 		
-		mm.NewInterface();
+		/*MainMenu mm = new MainMenu();
+		
+		mm.NewInterface();*/
 		
 	}
 

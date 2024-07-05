@@ -5,14 +5,17 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+//import javax.swing.ImageIcon;
+//import javax.swing.JButton;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
+//import javax.swing.JComponent;
+import javax.swing.*;
 
 public class MainMenu {
 
-	public void NewInterface() {
+	public MainMenu() {
+		
 		// Create a new JFrame
         JFrame frame = new JFrame("Tic Tac Toe");
 
@@ -39,6 +42,7 @@ public class MainMenu {
         frame.add(ticTacToeLabel);
         ticTacToeLabel.setBounds(41, 61, ticTacToeSize.width, ticTacToeSize.height); //Sets the location of the image
         
+        
         //Adding Play As image label
         JLabel playAsLabel = new JLabel(); //JLabel Creation
         playAsLabel.setIcon(new ImageIcon("res/img/menu/playAs.png")); //Sets the image to be displayed as an icon
@@ -46,40 +50,47 @@ public class MainMenu {
         frame.add(playAsLabel);
         playAsLabel.setBounds(88, 196, playAsSize.width, playAsSize.height); //Sets the location of the image
         
-        //Adding Configuration image label
-        JButton configurationsLabel=new JButton();
-        configurationsLabel.setIcon(new ImageIcon("res/img/menu/nut.png")); //Sets the image to be displayed as an icon
-        Dimension configurationsSize = configurationsLabel.getPreferredSize(); //Gets the size of the image
-        frame.add(configurationsLabel);
-        configurationsLabel.setBounds(12, 13, configurationsSize.width, configurationsSize.height); //Sets the location of the image
-        configurationsLabel.setFocusPainted(false);
-        //configurationsLabel.setBorder(null);
-        //configurationsLabel.setBorderPainted(false);
-        //configurationsLabel.setBorder(null);
-        //configurationsLabel.setMargin(new Insets(0, 0, 0, 0));
-        configurationsLabel.setContentAreaFilled(false);
-        configurationsLabel.setOpaque(false);
         
-        //Adding Information image label
+        //Adding Configuration image button
+        JButton configurationsJButton=new JButton();
+        configurationsJButton.setIcon(new ImageIcon("res/img/menu/nut.png")); //Sets the image to be displayed as an icon
+        Dimension configurationsSize = configurationsJButton.getPreferredSize(); //Gets the size of the image
+        configurationsJButton.setBounds(-12, 13, configurationsSize.width, configurationsSize.height); //Sets the location of the image
+        // Remove the button's default features
+        configurationsJButton.setBorderPainted(false);
+        configurationsJButton.setContentAreaFilled(false);
+        configurationsJButton.setFocusPainted(false);
+        configurationsJButton.setOpaque(false);
+        frame.add(configurationsJButton);
+        
+        //Adding Information image button
         JButton informationJButton = new JButton();
-        informationJButton.setIcon(new ImageIcon("res/img/menu/information.png")); //Sets the image to be displayed as an icon
+        ImageIcon icon = new ImageIcon("res/img/menu/information.png");
+        informationJButton.setIcon(icon); //Sets the image to be displayed as an icon
         Dimension informationSize = informationJButton.getPreferredSize(); //Gets the size of the image
-        frame.add(informationJButton);
-        informationJButton.setBounds(254, 13, informationSize.width, informationSize.height); //Sets the location of the image
-        informationJButton.setFocusPainted(false);
+        informationJButton.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
+        informationJButton.setBounds(230, 13, informationSize.width, informationSize.height); //Sets the location of the image     
+        // Remove the button's default features
+        informationJButton.setBorderPainted(false);
         informationJButton.setContentAreaFilled(false);
+        informationJButton.setFocusPainted(false);
         informationJButton.setOpaque(false);
+        frame.add(informationJButton);
         
-        //Adding Button X image label
+        
+        //Adding Button X image button
         JButton buttonXJButton = new JButton();
         buttonXJButton.setIcon(new ImageIcon("res/img/menu/buttonX.png")); //Sets the image to be displayed as an icon
         Dimension buttonXSize = buttonXJButton.getPreferredSize(); //Gets the size of the image
-        frame.add(buttonXJButton);
-        buttonXJButton.setBounds(41, 253, buttonXSize.width, buttonXSize.height); //Sets the location of the image
-        buttonXJButton.setFocusPainted(false);
+        buttonXJButton.setBounds(18, 253, buttonXSize.width, buttonXSize.height); //Sets the location of the image       
+        // Remove the button's default features
+        buttonXJButton.setBorderPainted(false);
         buttonXJButton.setContentAreaFilled(false);
+        buttonXJButton.setFocusPainted(false);
         buttonXJButton.setOpaque(false);
+        frame.add(buttonXJButton);
         
+        //Go to GridScreen playing as X
         buttonXJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,16 +99,20 @@ public class MainMenu {
             }
         });
         
-        //Adding Button Y image label
+        
+        //Adding Button O image button
         JButton buttonOJButton = new JButton();
         buttonOJButton.setIcon(new ImageIcon("res/img/menu/buttonO.png")); //Sets the image to be displayed as an icon
         Dimension buttonOSize = buttonOJButton.getPreferredSize(); //Gets the size of the image
-        frame.add(buttonOJButton);
-        buttonOJButton.setBounds(173, 253, buttonOSize.width, buttonOSize.height); //Sets the location of the image
-        buttonOJButton.setFocusPainted(false);
+        buttonOJButton.setBounds(149, 253, buttonOSize.width, buttonOSize.height); //Sets the location of the image
+        // Remove the button's default features
+        buttonOJButton.setBorderPainted(false);
         buttonOJButton.setContentAreaFilled(false);
+        buttonOJButton.setFocusPainted(false);
         buttonOJButton.setOpaque(false);
+        frame.add(buttonOJButton);
         
+        //Go to GridScreen playing as O
         buttonOJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -105,5 +120,15 @@ public class MainMenu {
                 new GridScreen(); // Open the second frame
             }
         });
+        
+        
+        //This button prevents the last button created to move after this jframe is opened again
+        JButton iDoNothing = new JButton();      
+        // Remove the button's default features
+        iDoNothing.setBorderPainted(false);
+        iDoNothing.setContentAreaFilled(false);
+        iDoNothing.setFocusPainted(false);
+        iDoNothing.setOpaque(false);
+        frame.add(iDoNothing);
 	}
 }
