@@ -5,11 +5,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import javax.swing.ImageIcon;
-//import javax.swing.JButton;
-//import javax.swing.JFrame;
-//import javax.swing.JLabel;
-//import javax.swing.JComponent;
 import javax.swing.*;
 
 public class MainMenu {
@@ -55,7 +50,7 @@ public class MainMenu {
         JButton configurationsJButton=new JButton();
         configurationsJButton.setIcon(new ImageIcon("res/img/menu/nut.png")); //Sets the image to be displayed as an icon
         Dimension configurationsSize = configurationsJButton.getPreferredSize(); //Gets the size of the image
-        configurationsJButton.setBounds(-12, 13, configurationsSize.width, configurationsSize.height); //Sets the location of the image
+        configurationsJButton.setBounds(-12, 1, configurationsSize.width, configurationsSize.height); //Sets the location of the image
         // Remove the button's default features
         configurationsJButton.setBorderPainted(false);
         configurationsJButton.setContentAreaFilled(false);
@@ -69,7 +64,7 @@ public class MainMenu {
         informationJButton.setIcon(icon); //Sets the image to be displayed as an icon
         Dimension informationSize = informationJButton.getPreferredSize(); //Gets the size of the image
         informationJButton.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
-        informationJButton.setBounds(230, 13, informationSize.width, informationSize.height); //Sets the location of the image     
+        informationJButton.setBounds(230, 1, informationSize.width, informationSize.height); //Sets the location of the image     
         // Remove the button's default features
         informationJButton.setBorderPainted(false);
         informationJButton.setContentAreaFilled(false);
@@ -82,7 +77,7 @@ public class MainMenu {
         JButton buttonXJButton = new JButton();
         buttonXJButton.setIcon(new ImageIcon("res/img/menu/buttonX.png")); //Sets the image to be displayed as an icon
         Dimension buttonXSize = buttonXJButton.getPreferredSize(); //Gets the size of the image
-        buttonXJButton.setBounds(18, 253, buttonXSize.width, buttonXSize.height); //Sets the location of the image       
+        buttonXJButton.setBounds(18, 241, buttonXSize.width, buttonXSize.height); //Sets the location of the image       
         // Remove the button's default features
         buttonXJButton.setBorderPainted(false);
         buttonXJButton.setContentAreaFilled(false);
@@ -94,8 +89,9 @@ public class MainMenu {
         buttonXJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // Destroy the current frame
-                new GridScreen(); // Open the second frame
+                char symbolSelected = 'x';
+            	frame.dispose(); // Destroy the current frame
+                new GridScreen(symbolSelected); // Open the second frame
             }
         });
         
@@ -104,7 +100,7 @@ public class MainMenu {
         JButton buttonOJButton = new JButton();
         buttonOJButton.setIcon(new ImageIcon("res/img/menu/buttonO.png")); //Sets the image to be displayed as an icon
         Dimension buttonOSize = buttonOJButton.getPreferredSize(); //Gets the size of the image
-        buttonOJButton.setBounds(149, 253, buttonOSize.width, buttonOSize.height); //Sets the location of the image
+        buttonOJButton.setBounds(149, 241, buttonOSize.width, buttonOSize.height); //Sets the location of the image
         // Remove the button's default features
         buttonOJButton.setBorderPainted(false);
         buttonOJButton.setContentAreaFilled(false);
@@ -116,8 +112,9 @@ public class MainMenu {
         buttonOJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // Destroy the current frame
-                new GridScreen(); // Open the second frame
+                char symbolSelected = 'o';
+            	frame.dispose(); // Destroy the current frame
+                new GridScreen(symbolSelected); // Open the second frame
             }
         });
         
